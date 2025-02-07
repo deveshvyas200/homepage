@@ -1,0 +1,404 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode header {
+    background-color: #212529;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+body.dark-mode .logo {
+    color: #66b3ff;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 500px;          /* Increased width */
+}
+
+body.dark-mode .search-bar input {
+    border-color: #6c757d;
+    background-color: #495057;
+    color: #fff;
+}
+
+.header-right button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.header-right button:hover {
+    background-color: #218838;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Ensure popups are on top of everything */
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    width: 400px;
+}
+
+body.dark-mode .popup-content {
+    background-color: #495057;
+    color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+body.dark-mode .close-button {
+    color: #fff;
+}
+
+#category {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode #category {
+    border-color: #6c757d;
+    background-color: #495057;
+    color: #fff;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="url"],
+body.dark-mode textarea {
+    border-color: #6c757d;
+    background-color: #495057;
+    color: #fff;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Widget Styles */
+.bookmark-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+
+.bookmark-category {
+    width: calc(100% - 2rem); /* One category per row now */
+    margin: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.bookmark-category:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .bookmark-category {
+    background-color: #495057;
+    color: #fff;
+    box-shadow: 0 0.25rem 0.5rem rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .bookmark-category:hover {
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+}
+
+.bookmark-category h2 {
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin: 0;
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;              /* Use flexbox for button alignment */
+    justify-content: space-between; /* Space between title and buttons */
+    align-items: center;          /* Vertically align */
+}
+
+body.dark-mode .bookmark-category h2 {
+    background-color: #66b3ff;
+}
+
+.bookmark-category h2 .category-buttons {  /* Style for buttons in the category title */
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-category h2 .category-buttons button {
+    margin-left: 0.5rem;    /* Spacing between buttons */
+}
+
+.bookmark-category h2 .add-bookmark-category { /*Style for the add Bookmark Button */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.bookmark-category h2 .add-bookmark-category:hover {
+    background-color: #218838;
+}
+
+/* Updated Bookmark Widget Styles */
+.bookmark-card-container {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;   /* Align widgets to the left */
+    gap: 1rem;                      /* Spacing between widgets */
+}
+
+.bookmark-card {
+    width: 200px;                   /* Double the size */
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    display: flex;                  /* Center content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;             /* Center text inside */
+    overflow: hidden;
+    position: relative;            /* Positioning for remove button */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.bookmark-card:hover {
+    background-color: #dee2e6;
+}
+
+body.dark-mode .bookmark-card {
+    background-color: #495057;
+    color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
+}
+
+body.dark-mode .bookmark-card:hover {
+    background-color: #5a6268;
+}
+
+.bookmark-card a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;               /* Fill the card */
+    width: 100%;
+    height: 100%;
+    display: flex;                  /* Center content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.dark-mode .bookmark-card a {
+    color: #66b3ff;
+}
+
+.bookmark-card a:hover {
+    text-decoration: underline;
+}
+.bookmark-card .bookmark-buttons {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;            /* Align buttons horizontally */
+    opacity: 0;                 /* Initially hidden */
+    transition: opacity 0.2s ease;
+}
+
+.bookmark-card:hover .bookmark-buttons {
+    opacity: 1;
+}
+
+.bookmark-card .bookmark-buttons button {
+    background-color: #dc3545; /* Red */
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.25rem;   /* Spacing between buttons */
+}
+.bookmark-card .bookmark-buttons .edit-bookmark {
+    background-color: #6c757d
+}
+.remove-category { /*Style for remove Catagres*/
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) { /* Responsive Breakpoint */
+    .bookmark-category {
+        width: calc(100% - 2rem); /* Full width on small screens */
+    }
+
+    .bookmark-card-container {
+        justify-content: center; /* Center widgets on smaller screens */
+    }
+}
+
+/* Confirmation Popup Styles */
+.confirmation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.confirmation-popup .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    width: 300px;
+    text-align: center;
+}
+
+.confirmation-popup .popup-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin: 0 0.5rem;
+}
+
+.confirmation-popup .popup-content button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode .confirmation-popup .popup-content {
+    background-color: #495057;
+    color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+}
+#add-custom-category-btn {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 1rem;          /* Spacing below the button */
+}
+
+#add-custom-category-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+.bookmark-card img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
